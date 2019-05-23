@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Note from '../Components/Note/Note';
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   state = {
@@ -19,9 +19,6 @@ class App extends React.Component {
           <div className='heading'>React and Firebase ToDo App</div>
         </div>
         <div className='notesBody'>
-
-        </div>
-        <div className='notesBody'>
           {
             this.state.notes.map((note) => {
               return (
@@ -29,10 +26,11 @@ class App extends React.Component {
               )
             })
           }
-          <div className="notesFooter">
-            Footer will go here....
-            </div>
+
         </div>
+        <div className="notesFooter">
+          Footer will go here....
+            </div>
       </div>
     );
   }
