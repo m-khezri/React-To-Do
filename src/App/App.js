@@ -6,12 +6,22 @@ import './App.scss';
 
 class App extends React.Component {
   state = {
+
     notes: [
       { id: 1, noteContent: 'Note 1 here!' },
       { id: 2, noteContent: 'Note 1 here!' },
     ],
   }
 
+  addNote = this.addNote.bind(this);
+
+  addNote(note) {
+    const previousNotes = this.state.notes;
+    previousNotes.push({ id: previousNotes.length + 1, noteContent: note });
+    this.setState({
+      notes: previousNotes
+    });
+  }
 
   render() {
     return (
@@ -30,7 +40,7 @@ class App extends React.Component {
 
         </div>
         <div className="notesFooter">
-          <NoteForm />
+          <NoteForm addNote={this.addNote} />
         </div>
       </div>
     );
